@@ -7,25 +7,24 @@ const InputForm = ({ onAddLeg }) => {
   const [cities, setCities] = useState([]); // State to store fetched cities
 
   // Function to fetch cities based on search term (use your chosen API)
-const fetchCities = async (searchTerm) => {
-  try {
-    const response = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-        searchTerm
-      )}.json?access_token=pk.eyJ1IjoiYW51a3JpdGoiLCJhIjoiY2xmdWsxcTVnMDJ1MzNma3hydXpiZTlrdSJ9.KZj4Cssj0zBohNt0ZXoZfg`
-    );
-    const data = await response.json();
-    const cities = data.features.map((feature) => ({
-      name: feature.place_name,
-      coordinates: feature.geometry.coordinates,
-    }));
-    setCities(cities);
-  } catch (error) {
-    console.error("Error fetching cities: ", error);
-    setCities([]);
-  }
-};
-
+  const fetchCities = async (searchTerm) => {
+    try {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          searchTerm
+        )}.json?access_token=pk.eyJ1IjoiYW51a3JpdGoiLCJhIjoiY2xmdWsxcTVnMDJ1MzNma3hydXpiZTlrdSJ9.KZj4Cssj0zBohNt0ZXoZfg`
+      );
+      const data = await response.json();
+      const cities = data.features.map((feature) => ({
+        name: feature.place_name,
+        coordinates: feature.geometry.coordinates,
+      }));
+      setCities(cities);
+    } catch (error) {
+      console.error("Error fetching cities: ", error);
+      setCities([]);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +48,7 @@ const fetchCities = async (searchTerm) => {
       />
       <datalist id="departure-cities">
         {cities.map((city) => (
-          <option key={city.id} value={city.name}>
+          <option key={city.name} value={city.name}>
             {city.name}
           </option>
         ))}
@@ -68,7 +67,7 @@ const fetchCities = async (searchTerm) => {
       />
       <datalist id="arrival-cities">
         {cities.map((city) => (
-          <option key={city.id} value={city.name}>
+          <option key={city.name} value={city.name}>
             {city.name}
           </option>
         ))}
@@ -82,6 +81,5 @@ const fetchCities = async (searchTerm) => {
     </form>
   );
 };
-
 
 export default InputForm;
