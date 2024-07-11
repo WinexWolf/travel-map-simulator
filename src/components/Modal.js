@@ -1,19 +1,15 @@
-import React from "react";
-import "./Modal.css"; // Add the CSS for the modal here
+import React from 'react';
+import './Modal.css';
 
 const Modal = ({ showModal, handleClose }) => {
   if (!showModal) return null;
 
   return (
-    <div className="modal-backdrop">
+    <div className="modal">
       <div className="modal-content">
-        <h2>Travel Simulation Info</h2>
-        <p>
-          Welcome to the travel simulation app! You can plan and visualize your
-          journey using various modes of transport such as flight, train, and
-          car. Enter your departure and arrival cities, select your mode of
-          transport, and see your route plotted on the map.
-        </p>
+        <span className="close" onClick={handleClose}>&times;</span>
+        <h2>Welcome to the Travel Simulator</h2>
+        <p>This app allows you to simulate travel routes using different modes of transportation. Add legs to your journey and visualize them on the map.</p>
         <button onClick={handleClose}>Close</button>
       </div>
     </div>
