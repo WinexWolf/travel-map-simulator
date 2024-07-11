@@ -17,7 +17,7 @@ const Map = ({ legs }) => {
     if (map.current) return; // Initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/dark-v11",
       center: [-74.5, 40],
       zoom: 2,
     });

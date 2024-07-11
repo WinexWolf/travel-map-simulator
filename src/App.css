@@ -3,6 +3,9 @@
   overflow: hidden; /* Added to remove scrollbar */
 
 }
+body, html {
+  overflow: hidden;
+}
 
 .App-logo {
   height: 40vmin;
@@ -45,7 +48,7 @@ form {
   margin: 0px 0 0 0;
   padding: 20px;
   background: #dff397;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
