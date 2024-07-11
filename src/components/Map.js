@@ -3,11 +3,10 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
 const geocodingClient = MapboxGeocoding({
-  accessToken: "pk.eyJ1IjoiYW51a3JpdGoiLCJhIjoiY2xmdWsxcTVnMDJ1MzNma3hydXpiZTlrdSJ9.KZj4Cssj0zBohNt0ZXoZfg",
+  accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
 });
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiYW51a3JpdGoiLCJhIjoiY2xmdWsxcTVnMDJ1MzNma3hydXpiZTlrdSJ9.KZj4Cssj0zBohNt0ZXoZfg";
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 const Map = ({ legs }) => {
   const mapContainer = useRef(null);
