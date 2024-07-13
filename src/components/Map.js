@@ -3,6 +3,7 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import { saveAs } from "file-saver";
 import RecordRTC from "recordrtc";
+import "./Map.css"; // Import the CSS file
 
 const geocodingClient = MapboxGeocoding({
   accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
@@ -14,7 +15,7 @@ const transportIcons = {
   driving: "car",
   walking: "walk",
   cycling: "bicycle",
-  flying: "plane",
+  flight: "flight",
 };
 
 const Map = ({ legs }) => {
@@ -114,13 +115,37 @@ const Map = ({ legs }) => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    // Animation logic here...
-    // For the sake of simplicity, this example doesn't include full animation logic.
-    // You can use map.flyTo, map.easeTo, and other mapbox-gl-js methods to animate the map.
+    let currentIndex = 0;
 
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 5000); // Example duration
+    const animateLeg = () => {
+      if (currentIndex >= legs.length) {
+        setIsAnimating(false);
+        return;
+      }
+
+      const { departure, arrival } = legs[currentIndex];
+
+      geocodingClient
+        .forwardGeocode({ query: arrival, limit: 1 })
+        .send()
+        .then((response) => {
+          const arrivalCoords = response.body.features[0].geometry.coordinates;
+
+          map.current.flyTo({
+            center: arrivalCoords,
+            zoom: 12,
+            speed: 0.5,
+            curve: 2,
+            easing: (t) => t,
+          });
+
+          currentIndex += 1;
+
+          setTimeout(animateLeg, 3000); // Wait for 3 seconds before animating to the next leg
+        });
+    };
+
+    animateLeg();
   };
 
   const startRecording = () => {
@@ -142,30 +167,21 @@ const Map = ({ legs }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
-      <div ref={mapContainer} style={{ width: "100vw", height: "100vh" }} />
+    <div className="map-container">
+      <div ref={mapContainer} className="map" />
       <canvas
         ref={canvasRef}
-        style={{ display: "none" }}
+        className="hidden-canvas"
         width="1920"
         height="1080"
       />
-      <button
-        onClick={startAnimation}
-        style={{ position: "absolute", top: 10, left: 10, zIndex: 1 }}
-      >
+      <button onClick={startAnimation} className="control-button">
         Play Animation
       </button>
-      <button
-        onClick={startRecording}
-        style={{ position: "absolute", top: 50, left: 10, zIndex: 1 }}
-      >
+      <button onClick={startRecording} className="control-button">
         Start Recording
       </button>
-      <button
-        onClick={stopRecording}
-        style={{ position: "absolute", top: 90, left: 10, zIndex: 1 }}
-      >
+      <button onClick={stopRecording} className="control-button">
         Stop Recording
       </button>
     </div>
