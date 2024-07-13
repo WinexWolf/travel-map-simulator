@@ -10,7 +10,7 @@ const Modal = ({ showModal, handleClose }) => {
         <span className="close" onClick={handleClose}>&times;</span>
         <h2>Welcome to the Travel Simulator</h2>
         <p>This app allows you to simulate travel routes using different modes of transportation. Add legs to your journey and visualize them on the map.</p>
-        <button onClick={handleClose}>Close</button>
+        <button onClick={handleClose}>Continue</button>
       </div>
     </div>
   );

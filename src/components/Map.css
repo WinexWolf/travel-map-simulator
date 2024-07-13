@@ -14,12 +14,13 @@
 .control-button {
   position: absolute;
   z-index: 1;
-  background: white;
+  background: rgb(10, 107, 227);
   border: none;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .control-button:hover {
@@ -29,16 +30,25 @@
 .control-button:nth-of-type(1) {
   top: 10px;
   left: 10px;
+  min-width: 40px;
 }
 
 .control-button:nth-of-type(2) {
-  top: 50px;
+  top: 60px;
   left: 10px;
+  min-width: 40px;
 }
 
 .control-button:nth-of-type(3) {
-  top: 90px;
+  top: 110px;
   left: 10px;
+  min-width: 40px;
+}
+
+.control-button:nth-of-type(4) {
+  top: 160px;
+  left: 10px;
+  min-width: 40px;
 }
 
 .transport-icon {
