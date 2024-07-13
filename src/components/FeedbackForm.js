@@ -40,7 +40,7 @@ const FeedbackForm = ({ onClose }) => {
               onChange={(e) => setComments(e.target.value)}
             />
           </label>
-          <button type="submit">Submit Feedback</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>

@@ -3,4 +3,31 @@
   height: 100vh;
   
 }
- */
+ *//* CSS for transport icons */
+.transport-icon.car {
+  background-image: url('/path/to/car-icon.png');
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.transport-icon.walk {
+  background-image: url('/path/to/walk-icon.png');
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.transport-icon.bicycle {
+  background-image: url('/path/to/bicycle-icon.png');
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.transport-icon.plane {
+  background-image: url('/path/to/plane-icon.png');
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
