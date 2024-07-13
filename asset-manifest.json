@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/travel-map-simulator/static/css/main.6bcabf81.css",
-    "main.js": "/travel-map-simulator/static/js/main.87c33340.js",
+    "main.css": "/travel-map-simulator/static/css/main.41a73e58.css",
+    "main.js": "/travel-map-simulator/static/js/main.c1484eb2.js",
     "static/js/453.b2457491.chunk.js": "/travel-map-simulator/static/js/453.b2457491.chunk.js",
     "index.html": "/travel-map-simulator/index.html",
-    "main.6bcabf81.css.map": "/travel-map-simulator/static/css/main.6bcabf81.css.map",
-    "main.87c33340.js.map": "/travel-map-simulator/static/js/main.87c33340.js.map",
+    "main.41a73e58.css.map": "/travel-map-simulator/static/css/main.41a73e58.css.map",
+    "main.c1484eb2.js.map": "/travel-map-simulator/static/js/main.c1484eb2.js.map",
     "453.b2457491.chunk.js.map": "/travel-map-simulator/static/js/453.b2457491.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6bcabf81.css",
-    "static/js/main.87c33340.js"
+    "static/css/main.41a73e58.css",
+    "static/js/main.c1484eb2.js"
   ]
 }
