@@ -1,3 +1,6 @@
+## App Link
+You can try out the app here: [Travel Map Simulator](https://winexwolf.github.io/travel-map-simulator/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
